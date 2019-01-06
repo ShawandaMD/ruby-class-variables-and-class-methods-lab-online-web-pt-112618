@@ -21,14 +21,6 @@ class Song
   def self.artists
     @@artists.uniq
   end
-
-  def self.genres
-    @@genres.uniq
-  end
-  
-  def self.genre_count
-    genre_count = @@genres.group_by{ |genre| genre}.map{|genre, num| [genre, num.size]}.to_h
-  end  
   
   def self.artist_count
     artist_count = {}
@@ -40,6 +32,14 @@ class Song
       end   
     end  
     artist_count
+  end  
+
+  def self.genres
+    @@genres.uniq
   end
+  
+  def self.genre_count
+    genre_count = @@genres.group_by{ |genre| genre}.map{|genre, num| [genre, num.size]}.to_h
+  end  
 
 end  
